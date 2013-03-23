@@ -78,4 +78,6 @@ int main(){
         cout<<distance[i]<<" "; cout<<endl;
 
     _delete2Darray(graph, 11);
+	
+	return 0;
 }
