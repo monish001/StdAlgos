@@ -12,5 +12,8 @@
 *.la
 *.a
 
-#Project binaries
+# Project binaries
 bin
+
+# Code::Blocks auto-generated files
+*.depend
