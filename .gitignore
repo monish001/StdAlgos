@@ -17,3 +17,4 @@ bin
 
 # Code::Blocks auto-generated files
 *.depend
+*.layout
