@@ -18,52 +18,63 @@ vector<int> spiralOrder(const vector<vector<int> > &A) {
     for(int index=0; index <= (min(m,n))/2 - 1; index++)
     {
     	// read top left corner
-    	cout<<A[index][index]<<"\t";
+    	//cout<<A[index][index]<<"\t";
+    	result.push_back(A[index][index]);
 
     	// read top, left to right
     	for(int col=index+1; col<n-index-1; col++){
-            cout<<A[index][col]<<"\t";
+            //cout<<A[index][col]<<"\t";
+            result.push_back(A[index][col]);
     	}
 
     	// read right top corner
-    	cout<<A[index][n-index-1]<<"\t";
+    	//cout<<A[index][n-index-1]<<"\t";
+    	result.push_back(A[index][n-index-1]);
 
     	// read right, top to bottom
     	for(int row = index+1; row<m-index-1; row++){
-            cout<<A[row][n-index-1]<<"\t";
+            //cout<<A[row][n-index-1]<<"\t";
+            result.push_back(A[row][n-index-1]);
     	}
 
     	// read right bottom corner
-    	cout<<A[m-index-1][n-index-1]<<"\t";
+    	//cout<<A[m-index-1][n-index-1]<<"\t";
+    	result.push_back(A[m-index-1][n-index-1]);
 
     	// read bottom, right to left
     	for(int col=n-index-2; col>index; col--){
-            cout<<A[m-index-1][col]<<"\t";
+            //cout<<A[m-index-1][col]<<"\t";
+            result.push_back(A[m-index-1][col]);
     	}
 
     	// read bottom left corner
-    	cout<<A[m-index-1][index]<<"\t";
+    	//cout<<A[m-index-1][index]<<"\t";
+    	result.push_back(A[m-index-1][index]);
 
     	// read left, bottom to top
     	for(int row=m-index-2; row>index; row--){
-            cout<<A[row][index]<<"\t";
+            //cout<<A[row][index]<<"\t";
+            result.push_back(A[row][index]);
     	}
 
-    	cout<<endl;
+    	//cout<<endl;
     }
     int midRow = m/2, midCol = n/2;
     if(m > n && n%2 == 1){
         int initRow = (n-1)/2;
         for(int row=initRow; row<m-initRow;row++){
-            cout<<A[row][midCol]<<"\t";
+            //cout<<A[row][midCol]<<"\t";
+            result.push_back(A[row][midCol]);
         }
     }else if(n > m && m%2 == 1){
         int initCol = (m-1)/2;
         for(int col = initCol; col<n-initCol; col++){
-            cout<<A[midRow][col]<<"\t";
+            //cout<<A[midRow][col]<<"\t";
+            result.push_back(A[midRow][col]);
         }
     }else if(n==m && m%2==1){
-        cout<<A[midRow][midCol]<<"\t";
+        //cout<<A[midRow][midCol]<<"\t";
+        result.push_back(A[midRow][midCol]);
     }
 
 	return result;
@@ -92,6 +103,9 @@ int main()
     }
 
     cout << "Result: "  << endl;
-    spiralOrder(mat);
+    vector<int> result = spiralOrder(mat);
+    for(int index=0; index<result.size(); index++){
+        cout<<result[index]<<"\t";
+    }
     return 0;
 }
